@@ -7,7 +7,7 @@ Tesla class and its functions were given and I added unit tests and docstrings o
 * Python 3.8
 
 ## Contacts
-Contact me here @arnoldasjan
+Contact me here [@arnoldasjan](https://github.com/arnoldasjan)
 
 
 
