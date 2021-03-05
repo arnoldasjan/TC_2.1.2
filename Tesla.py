@@ -1,3 +1,6 @@
+from unittest import TestCase
+
+
 class Tesla:
     # WRITE YOUR CODE HERE
     def __init__(self, model: str, color: str, autopilot: bool = False, efficiency: float = 0.3):
@@ -39,18 +42,21 @@ class Tesla:
             return f"Autopilot is not available"
 
     def unlock(self) -> None:
+        """Unlocks the door of Tesla if it is locked, prints that it is already unlocked if so"""
         if self.__is_locked:
             self.__is_locked = False
         else:
             print('It is already unlocked.')
 
     def lock(self) -> None:
+        """Locks the door of Tesla if it is unlocked, prints that it is already locked if so"""
         if self.__is_locked:
             print('It is already locked.')
         else:
             self.__is_locked = True
 
     def open_doors(self) -> str:
+        """Opens the door sideways of Tesla if it is unlocked, prints that it is locked if so"""
         # COMPLETE THE FUNCION
         if self.__is_locked:
             return 'Car is locked!'
@@ -77,3 +83,15 @@ class Tesla:
         else:
             print('Battery charge level is too low!')
             return self.check_battery_level()
+
+
+class TestTesla(TestCase):
+    def test_charge_battery(self):
+        c = Tesla('Model3', 'black')
+        c.charge_battery()
+        self.assertEqual(c.check_battery_level(), 'Battery charge level is 100%')
+
+    def test_charge_battery(self):
+        c = Tesla('Model3', 'black')
+        c.unlock()
+        self.assertEqual(c.is_locked, False)
